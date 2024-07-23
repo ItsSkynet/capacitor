@@ -3,9 +3,9 @@ def assertDeploymentTarget(installer)
     target.build_configurations.each do |config|
       # ensure IPHONEOS_DEPLOYMENT_TARGET is at least 13.0
       deployment_target = config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'].to_f
-      should_upgrade = deployment_target < 13.0 && deployment_target != 0.0
+      should_upgrade = deployment_target < 13.4 && deployment_target != 0.0
       if should_upgrade
-        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.4'
       end
     end
   end
